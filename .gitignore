@@ -1,0 +1,45 @@
+# Виртуальные окружения
+venv/
+env/
+ENV/
+.venv/
+
+# Кэши Python
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+__pycache__/
+.python-version
+
+# Кэши IDE и редакторов
+.cache/
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Логи и временные файлы
+*.log
+*.tmp
+*.temp
+
+# Библиотеки и зависимости
+build/
+dist/
+*.egg-info/
+*.egg
+
+.env
+*.env.local
+*.env.development
+*.env.production
+
+.coverage
+htmlcov/
+.pytest_cache/
+.hypothesis/
+
