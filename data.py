@@ -21,5 +21,3 @@ class TestData:
     # Несуществующий логин и пароль
     NONEXISTENT_LOGIN = 'unknown_login_123_avadakedavra'
     NONEXISTENT_PASSWORD = 'unknown_password_123_avadakedavra'
-
-    'unknown_login_123_avadakedavra'
