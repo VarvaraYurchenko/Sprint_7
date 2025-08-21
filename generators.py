@@ -2,12 +2,14 @@ from faker import Faker
 
 fake = Faker()
 
+
 def generate_fake_courier():
     return {
         "login": fake.user_name(),
         "password": fake.password(length=10),
         "firstName": fake.first_name()
     }
+
 
 def generate_order_data():
     return {
