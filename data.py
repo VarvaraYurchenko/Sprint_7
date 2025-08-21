@@ -16,3 +16,10 @@ class Message:
     # Ошибки при логине
     LOGIN_COURIER_NOT_FOUND = "Учетная запись не найдена"
     LOGIN_COURIER_MISSING_FIELDS = "Недостаточно данных для входа"
+
+class TestData:
+    # Несуществующий логин и пароль
+    NONEXISTENT_LOGIN = 'unknown_login_123_avadakedavra'
+    NONEXISTENT_PASSWORD = 'unknown_password_123_avadakedavra'
+
+    'unknown_login_123_avadakedavra'
