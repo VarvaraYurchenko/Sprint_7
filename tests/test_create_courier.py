@@ -25,23 +25,16 @@ class TestCreateCourier:
         delete_courier.append((login, password))
 
     @allure.title('Нельзя создать курьера с занятым логином')
-    def test_create_courier_with_existing_login_conflict(self, delete_courier):
-        with allure.step('Создать валидные данные для курьера'):
-            courier_data = generate_fake_courier()
-            login = courier_data['login']
-            password = courier_data['password']
-
-            response_first = CourierMethods.create_courier(courier_data)
-            assert response_first.status_code == 201
-
-            delete_courier.append((login, password))
+    def test_create_courier_with_existing_login_conflict(self, create_and_delete_courier):
+        with allure.step('Получить логин и пароль существующего курьера'):
+            login, password = create_and_delete_courier
 
         with allure.step('Повторно отправить запрос на создание курьера с тем же логином'):
-            response_second = CourierMethods.create_courier(courier_data)
+            response = CourierMethods.create_courier({'login': login, 'password': password})
 
         with allure.step('Проверить, что статус-код 409 и правильное сообщение об ошибке'):
-            assert response_second.status_code == 409
-            assert Message.CREATE_COURIER_ALREADY_EXISTS in response_second.json().get('message')
+            assert response.status_code == 409
+            assert Message.CREATE_COURIER_ALREADY_EXISTS in response.json().get('message')
 
     @pytest.mark.parametrize('field', ['login', 'password'])
     @allure.title('Нельзя создать курьера без обязательного поля login или password')
